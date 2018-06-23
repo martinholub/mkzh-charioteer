@@ -1,7 +1,7 @@
 #include <TheThingsNetwork.h>
 
-const char *appEui = "70B3D57ED001002B";
-const char *appKey = "8A00E8AAF118BCE0768225E14A5419CE";
+const char *appEui = "70B3D57ED0010035";
+const char *appKey = "962841F54F3BCFECB8317031276C86D3";
 
 #define loraSerial Serial1
 #define debugSerial Serial
@@ -16,7 +16,7 @@ void setup() {
   debugSerial.begin(9600);
       
   // Initialize LED output pin
-  // pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
     
   // Wait a maximum of 10s for Serial Monitor
   while (!debugSerial && millis() < 10000);
@@ -29,5 +29,15 @@ void setup() {
 }
 
 void loop() {
-  // pass
+  debugSerial.println("-- LOOP");
+    
+  // Prepare array of 1 byte to indicate LED status
+  byte data[2];
+  data[0] = 1;
+  data[1] = 255;
+  
+  // Send it off
+  ttn.sendBytes(data, sizeof(data));
+      
+  delay(10000);
 }
