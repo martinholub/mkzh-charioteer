@@ -21,7 +21,6 @@ Building CharIoTeer is simple and fun! The following sections take you step by s
 * [u-blox PAM-7Q](https://www.u-blox.com/sites/default/files/PAM-7Q_DataSheet_(UBX-13002455).pdf) GPS sensor
 * Buzzer, LEDs, Resistors, Jumper Wires, Breadboard, Battery Power Supply
 * PLA for 3D printed casing
-*
 
 ## Getting Started
 
