@@ -1,8 +1,11 @@
 # CharIoTeer
 ![img](img/logo.png)
-Smart last-mile delivery project @MakeZurich
+
+### Smart last-mile delivery project @MakeZurich
 
 CharIoTeer is a contribution to the long-standing quest of making delivery smart. By measuring critical indicators of package health (temperature of goods, ambient temperature, humidity, position) together with geographical coordinates. The project provides real-time actionable data for inner-city logistics of high-value shippments (medicines, blood, valuable documents, groceries, cigars,... ).
+
+Check [the presentation](https://speakerdeck.com/mholub/charioteer-smart-last-mile-delivery).
 
 # Building CharIoTeer
 
@@ -30,7 +33,7 @@ Once your hardware arrives, put it all together:
 
 ## Wiring the Arduino
 
-*Note that despite being named The Things Network UNO (TTN Uno), the board is actually a Arduino Leonardo (with ??? chip). To make this clear, I name TTN Uno TTN Leanardo instead.*
+*Note that despite being named The Things Network UNO (TTN Uno), the board is actually a Arduino Leonardo (with a [RN2483](https://www.microchip.com/wwwproducts/en/RN2483) chip). To make this clear, I name TTN Uno TTN Leanardo instead.*
 
 ![img](img/hw2.jpg)
 
@@ -227,7 +230,7 @@ I wanted to have a nice casing for the project to work as tight protective enclo
 
 ## Receiving and Decoding Payloads
 
-Once the data was emitted by the .... chip, received by usually [multiple](https://www.thethingsnetwork.org/docs/network/architecture.html#de-duplication-broker)) gateways it is handed over to the backend server application. We used [The Things Network Console](https://console.thethingsnetwork.org/) to create and manage such applciation inlcuding its `decoder` , `validator` and `converter` functions.
+Once the data was emitted by the [RN2483](https://www.microchip.com/wwwproducts/en/RN2483) chip, received by usually [multiple](https://www.thethingsnetwork.org/docs/network/architecture.html#de-duplication-broker)) gateways it is handed over to the backend server application. We used [The Things Network Console](https://console.thethingsnetwork.org/) to create and manage such applciation inlcuding its `decoder` , `validator` and `converter` functions.
 
 For example the `decoder` function for geographical coordinates and for temperature looks as following (compare with encoding on Arduino above):
 
