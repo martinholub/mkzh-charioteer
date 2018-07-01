@@ -3,3 +3,5 @@
 temp/
 temp~/
 .pioenvs
+private_keys.h
+*.pdf
