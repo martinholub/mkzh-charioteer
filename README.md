@@ -5,7 +5,7 @@
 
 CharIoTeer is a contribution to the long-standing quest of making delivery smart. By measuring critical indicators of package health (temperature of goods, ambient temperature, humidity, position) together with geographical coordinates. The project provides real-time actionable data for inner-city logistics of high-value shippments (medicines, blood, valuable documents, groceries, cigars,... ).
 
-Check [the presentation](https://speakerdeck.com/mholub/charioteer-smart-last-mile-delivery).
+Check [the presentation](https://speakerdeck.com/mholub/charioteer-smart-last-mile-delivery) (credit [Antonios Kouris](https://www.crunchbase.com/person/antonios-kouris#section-overview)).
 
 # Building CharIoTeer
 
@@ -311,12 +311,14 @@ Here is a sample visualization showing geographical coordinates as dots color-co
 
 ![img](img/vis.png)
 
-## References
+## Remarks
+* If you decide to use SHTxx sensor together with ADXL345 acceloremeter, you will have them share I2C bus. This is [not a problem](https://www.bluedot.space/tutorials/how-many-devices-can-you-connect-on-i2c-bus/) as long as the devices will [have dfferent addresses](http://www.learningaboutelectronics.com/Articles/Multiple-I2C-devices-to-an-arduino-microcontroller.php).
+* If you want to deploy the device for real-world application, consider using LoRa capable low-power microcontroller like [MSP430](https://platformio.org/lib/show/374/armapi), [muRata LoRaWan module](https://www.murata.com/en-sg/products/lpwa/lora) or [MKR WAN 1300](https://store.arduino.cc/mkr-wan-1300)
 
+## References
 * [MakeZürich](https://makezurich.ch/about/)
 * [The Things Network Community in Zürich](https://www.thethingsnetwork.org/community/zurich/)
 * [Post kauft Logistik Startup notime](https://www.startupticker.ch/en/news/march-2018/post-kauft-logistik-startup-notime) (German)
-
 
 ## Team
 * Martin Holub ([web](http://www.martinholub.com/about/))
