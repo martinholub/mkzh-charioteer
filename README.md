@@ -5,7 +5,9 @@
 
 CharIoTeer is a contribution to the long-standing quest of making delivery smart. By measuring critical indicators of package health (temperature of goods, ambient temperature, humidity, position) together with geographical coordinates. The project provides real-time actionable data for inner-city logistics of high-value shippments (medicines, blood, valuable documents, groceries, cigars,... ).
 
-Check [the presentation](https://speakerdeck.com/mholub/charioteer-smart-last-mile-delivery) (credit [Antonios Kouris](https://www.crunchbase.com/person/antonios-kouris#section-overview)).
+Check [my blog post](http://www.martinholub.com/eth/code/2018/08/05/MakeZurich.html) on the project.
+
+<!-- and [the project presentation](https://www.slideshare.net/secret/HptLulsGrX1wgX) (credit [Antonios Kouris](https://www.crunchbase.com/person/antonios-kouris#section-overview)). -->
 
 # Building CharIoTeer
 
@@ -109,16 +111,16 @@ void add_buffer_gps(double lat, double lon){
   }
 ```
 
-Another example is encoding of tilt of the device as measured by accelerometer: 
+Another example is encoding of tilt of the device as measured by accelerometer:
 
 ``` cpp
 void add_buffer_tilt(float Xg_crit, float Yg_crit, int it = 0) {
   // it, position where to start writing to the buffer
-  
+
   // offset by 2 to assure range -1..1 becomes positive and scale to 0..1
   XgB = (Xg_crit  + 2.0) * pow(256,1) / 4;
   YgB = (Yg_crit + 2.0) * pow(256,1) / 4;
-  
+
   // each value is just one byte
   dataBuffer[it] = XgB;
   dataBuffer[it+1] = YgB;
@@ -203,7 +205,7 @@ void send_ttn_message(uint8_t* data, size_t data_size, port_t prt = 1) {
 void setup(){
   Serial.print("--- TTN STATUS ---"); ttn.showStatus();
   ttn.provision(appEui, appKey);
-  is_connected = ttn.join(10); // try to connect up to 10 times 
+  is_connected = ttn.join(10); // try to connect up to 10 times
   if (!is_connected){
     Serial.print("Join to TTN failed.");
   }
@@ -225,7 +227,7 @@ More can be found on the [Quick Start](https://www.thethingsnetwork.org/docs/dev
 
 ![img](img/hw1.jpg)
 I wanted to have a nice casing for the project to work as tight protective enclosure and to make it all together look neat. To design the case (starting from a [template](https://www.thingiverse.com/thing:78032)) I used [OpenSCAD](http://www.openscad.org/). I sliced the `stl` files to `gcode` using [CURA](https://ultimaker.com/en/products/ultimaker-cura-software) and printed them on a 3D printer from [Teil3](https://www.teil3.ch/shop/3d-drucker.html). You will find the design in `scad` file in `hw` folder for you to adjust and play with.
- 
+
 <!-- mail guy from tel3d ..... get cura settings! -->
 
 ## Receiving and Decoding Payloads
@@ -302,7 +304,7 @@ Here is a sample of datapoint:
   "tiltx":0.1875,
   "tilty":-0.203125
 }
-``` 
+```
 ## Storing and Visualizing Data
 
 The server application was developed by [@njam](https://github.com/njam). The full source code is available at the [project's gitlab](https://gitlab.com/mkzh-milesahead/ttn-milesahead). The visalizations are available [here](https://ttn-milesahead.herokuapp.com/).
